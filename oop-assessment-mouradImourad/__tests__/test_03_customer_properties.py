@@ -20,3 +20,5 @@ def test_03_customer_properties():
     
     assert hasattr(customer, "current_video_rentals")
     assert isinstance(customer.current_video_rentals, list)
+
+
