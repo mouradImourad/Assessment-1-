@@ -2,7 +2,7 @@
 To do list :
 
 x create store class
-2. create customers class 
+x create customers class 
 3. create video class 
 4. create customers types subclasses 
 5. load the customers from csv 
@@ -15,12 +15,12 @@ x create store class
 """
 
 
-
-
-
+from classes.customer import Customer
 
 from classes.store import Store
 
 block_buster = Store("Block Buster")
 print(block_buster)
 
+Alex = Customer(100, "Alex", "Hamilton", "sx", "the Godfather")
+print(Alex)
