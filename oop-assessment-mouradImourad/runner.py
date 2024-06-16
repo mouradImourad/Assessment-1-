@@ -1,7 +1,7 @@
 """
 To do list :
 
-1. create store class
+x create store class
 2. create customers class 
 3. create video class 
 4. create customers types subclasses 
@@ -22,5 +22,5 @@ To do list :
 from classes.store import Store
 
 block_buster = Store("Block Buster")
-print(block_buster.run_the_store())
+print(block_buster)
 
