@@ -16,9 +16,15 @@ class Store:
     def __repr__(self):
         return f" {self.name}"    
 
+
+    def load_data(self):
+        pass
+    
     def customer_type_maker(self, customer_info):
         pass
 
     def run_the_store(self):
         pass
+
+
 

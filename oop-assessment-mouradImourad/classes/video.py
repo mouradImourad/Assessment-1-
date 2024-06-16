@@ -9,12 +9,8 @@ class Video should include:
   _copies_available
   * one setter for _copies_available getter
 * cls method get_a_video_by_title 
-* cls list_inventory
+* cls method list_inventory
 """
-
-
-
-
 
 
 class Video:
@@ -52,6 +48,14 @@ class Video:
     @get_copies_available.setter
     def set_copies_available(self, value):
          pass 
+    
+    @classmethod
+    def list_invintory(cls):
+         pass
+    
+    @classmethod
+    def get_a_video_by_title(cls):
+         pass
         
     
 
