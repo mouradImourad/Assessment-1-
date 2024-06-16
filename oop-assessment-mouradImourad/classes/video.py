@@ -2,6 +2,7 @@
 """
 class Video should include:
 * five instance attributes
+* videos cls attributes
 * four getter 
   _id
   _title
@@ -14,7 +15,7 @@ class Video should include:
 
 
 class Video:
-
+    videos = {}
     def __init__(self, id, title, rating, release_year, copies_available):
         self._id = id
         self._title = title
