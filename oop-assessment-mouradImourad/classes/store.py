@@ -138,10 +138,10 @@ class Store:
             if customer:
                 title = input("Enter a video title: ")
                 video = Video.get_a_video_by_title(title)
+                rating = video.rating
                 if video and video.copies_available > 0:
-                    result = customer.rent_a_video(title, video.rating)
+                    customer.rent_a_video(video.title, rating)
                     video.copies_available -= 1
-                    print(result)
                 else:
                     print("Video not available for rent.")
             else:
@@ -159,7 +159,7 @@ class Store:
                 title = input("Enter a video title to return: ")
                 video = Video.get_a_video_by_title(title)
                 if video:
-                    result = customer.rent_a_video(title)
+                    result = customer.rent_a_video(title, video.rating)
                     video.copies_available += 1
                     print(result)
                 else:

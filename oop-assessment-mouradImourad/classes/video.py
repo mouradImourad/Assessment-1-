@@ -48,7 +48,7 @@ class Video:
     @copies_available.setter
     def copies_available(self, value):
         if not isinstance(value, int):
-            raise ValueError('Copies available shjould be an integer')
+            raise ValueError('Copies available should be an integer')
         if value < 0:
             raise ValueError('Copies availabe cannot be negative')
         self._copies_available = value

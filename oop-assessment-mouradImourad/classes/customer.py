@@ -57,6 +57,8 @@ class Customer:
     def add_a_customer(cls, customer):
         if not isinstance(customer, Customer):
             raise ValueError("This function will only accept an instance of the Customer class")
+        if customer.id in cls.customers:
+            raise ValueError(f"Customer with ID {customer.id} already exists.")
         cls.customers[customer.id] = customer
         return f"{customer.first_name} has been added into our database!"
     
@@ -66,7 +68,7 @@ class Customer:
     
     def get_customer_rented_videos(self):
         rentals = ",".join(self.current_video_rentals)
-        return f"{self.first_name} has the following rentals:\n{rentals}"
+        return f"{self.first_name} has the following rentals: {rentals}"
     
     def rent_a_video(self, title, rating=None):
         if title not in self._current_video_rentals:
