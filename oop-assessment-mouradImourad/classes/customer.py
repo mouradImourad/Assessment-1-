@@ -19,12 +19,12 @@
 class Customer:
     customers = {}
     
-    def __init__(self, _id, first_name, last_name, _account_type, _current_video_rentals=None):
-        self._id = _id
+    def __init__(self, id, first_name, last_name, account_type, current_video_rentals=None):
+        self._id = id
         self.first_name = first_name
         self.last_name = last_name
-        self._account_type = _account_type
-        self._current_video_rentals = _current_video_rentals or []
+        self._account_type = account_type
+        self._current_video_rentals = current_video_rentals or []
 
     def __repr__(self):
         return f"{self._id} {self._account_type} {self.first_name} {self.last_name} {self._current_video_rentals}"
@@ -32,25 +32,25 @@ class Customer:
 
 
     @property
-    def get_id(self):
+    def id(self):
         return self._id
 
     @property
-    def get_current_video_rentals(self):
+    def current_video_rentals(self):
         return self._current_video_rentals
 
-    @get_current_video_rentals.setter
-    def get_current_video_rentals(self, value):
+    @current_video_rentals.setter
+    def current_video_rentals(self, value):
         if not isinstance(value, list):
             raise ValueError("Current Video Rentals should only be a list")
         self._current_video_rentals = value
     
     @staticmethod
-    def create_a_customer_dict(_id, first_name, last_name, _account_type):
-        return {'id': _id,
+    def create_a_customer_dict(id, first_name, last_name, account_type):
+        return {'id': id,
                 'first_name': first_name,
                 'last_name': last_name,
-                'account_type': _account_type
+                'account_type': account_type
                 }
     
     @classmethod
@@ -63,8 +63,8 @@ class Customer:
         return f"{customer.first_name} has been added into our database!"
     
     @classmethod
-    def get_customer_by_id(cls, _id):
-        return cls.customers.get(_id, None)
+    def get_customer_by_id(cls, customer_id):
+        return cls.customers.get(customer_id, None)
     
     def get_customer_rented_videos(self):
         rentals = "/".join(self.current_video_rentals)
@@ -72,12 +72,11 @@ class Customer:
     
     def rent_a_video(self, title, rating):
         self._current_video_rentals.append(title)
-        return f"{self.first_name} has the following rentals:\n{self.current_video_rentals}"
-
+        return self.get_customer_rented_videos()
 
     def return_a_video(self, title):
         self._current_video_rentals.remove(title)
-        return f"{self.first_name} has the following rentals:\n{self.current_video_rentals}"
+        return self.get_customer_rented_videos()
 
 
 

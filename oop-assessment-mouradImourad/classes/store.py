@@ -13,10 +13,7 @@ Store class based on the given data in the README.md will include:
 """ 
 import csv
 from classes.customer import Customer
-from classes.customer_pf import Customer_pf
-from classes.customer_sf import Customer_sf
-from classes.customer_sx import Customer_sx
-from classes.customer_px import Customer_px
+from classes.customer_types import *
 from classes.video import Video
 
 class Store:
