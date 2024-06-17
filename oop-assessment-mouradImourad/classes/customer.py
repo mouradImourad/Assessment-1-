@@ -19,7 +19,7 @@
 class Customer:
     customers = {}
     
-    def __init__(self, id, first_name, last_name, account_type, current_video_rentals=None):
+    def __init__(self, id=None, first_name=None, last_name=None, account_type=None, current_video_rentals=None):
         self._id = id
         self.first_name = first_name
         self.last_name = last_name
@@ -55,27 +55,27 @@ class Customer:
     
     @classmethod
     def add_a_customer(cls, customer):
-        if not isinstance(customer, cls):
-            raise valueError("This funciton will only acept an instance 0f the Customer class")
-        if customer._id in cls.customers:
-            return f"Customer with ID {customer._id} already exists!"
-        cls.customers[customer._id] = customer
+        if not isinstance(customer, Customer):
+            raise ValueError("This function will only accept an instance of the Customer class")
+        cls.customers[customer.id] = customer
         return f"{customer.first_name} has been added into our database!"
     
     @classmethod
     def get_customer_by_id(cls, customer_id):
-        return cls.customers.get(customer_id, None)
+        return cls
     
     def get_customer_rented_videos(self):
-        rentals = "/".join(self.current_video_rentals)
+        rentals = ",".join(self.current_video_rentals)
         return f"{self.first_name} has the following rentals:\n{rentals}"
     
-    def rent_a_video(self, title, rating):
-        self._current_video_rentals.append(title)
+    def rent_a_video(self, title, rating=None):
+        if title not in self._current_video_rentals:
+            self._current_video_rentals.append(title)
         return self.get_customer_rented_videos()
 
     def return_a_video(self, title):
-        self._current_video_rentals.remove(title)
+        if title in self._current_video_rentals:
+            self._current_video_rentals.remove(title)
         return self.get_customer_rented_videos()
 
 
