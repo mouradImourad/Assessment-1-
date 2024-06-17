@@ -21,22 +21,4 @@ x create customers types subclasses
 - Exiting the application
 
 """
-from classes.video import Video
-
-from classes.customer import Customer
-
-from classes.store import Store
-
-block_buster = Store("Block Buster")
-print(block_buster)
-
-Alex = Customer(100, "Alex", "Hamilton", "sx", "the Godfather")
-print(Alex)
-
-Godfather = Video(5, "Godfather", "G", 1995, 5)
-print(Godfather)
-
-all_customers = Customer.load_all_customers()
-print(all_customers)
-# Blockbuster.customers = all_customers
 
